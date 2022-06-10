@@ -4,8 +4,8 @@
     "description": "",
     "main": "dist/index.js",
     "scripts": {
-        "start": "ts-node --files bot.ts",
-        "start:watch": "ts-node-dev --files bot.ts",
+        "start": "ts-node --files --rs bot.ts",
+        "start:watch": "ts-node-dev --files --rs bot.ts",
         "build": "tsc --project tsconfig.json"
     },
     "keywords": [],

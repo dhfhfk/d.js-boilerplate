@@ -1,5 +1,5 @@
 import { Client, CommandInteraction } from "discord.js";
-import { getLocaleString } from "../utils/localization";
+import { getLocaleString as t } from "../utils/localization";
 
 module.exports = {
     name: "테스트",
@@ -41,15 +41,13 @@ module.exports = {
     ],
 
     run: async (client: Client, interaction: CommandInteraction, locale: string) => {
-        console.log("🚀 ~ file: 테스트.ts ~ line 44 ~ run: ~ locale", locale);
-        console.log("🚀 ~ file: 테스트.ts ~ line 45 ~ run: ~ locale", getLocaleString(locale, "discord_api_latency"));
         await interaction.deferReply({ ephemeral: true });
         switch (interaction.options.getSubcommand()) {
             case "echo": {
                 return await interaction.editReply({ content: interaction.options.getString("message") });
             }
             case "ping": {
-                return await interaction.editReply({ content: `${getLocaleString(locale, "discord_api_latency")} ${String(client.ws.ping)}ms` });
+                return await interaction.editReply({ content: `${await t(locale, "discord_api_latency", [String(client.ws.ping)])}` });
             }
         }
     },
