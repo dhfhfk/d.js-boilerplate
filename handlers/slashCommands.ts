@@ -14,8 +14,9 @@ module.exports = async (client: Client) => {
     });
 
     client.on("ready", async () => {
-        await client.guilds.cache.get("367303729566711808")?.commands.set(arrayOfSlashCommands);
-        // 전역 셋
-        // await client.application.commands.set(arrayOfSlashCommands);
+        // await client.guilds.cache.get("길드 커맨드 셋을 위한 Guild Id")?.commands.set(arrayOfSlashCommands);
+
+        // 전역 커맨드 셋
+        await client.application?.commands.set(arrayOfSlashCommands);
     });
 };
