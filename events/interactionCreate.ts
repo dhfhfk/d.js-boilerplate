@@ -12,7 +12,7 @@ client.on("interactionCreate", async (interaction: Interaction) => {
     if (interaction.isContextMenu()) {
         await interaction.deferReply({ ephemeral: false });
         import(`../commands/${interaction.commandName}`).then(async (command) => {
-            if (command) command.run(client, interaction);
+            if (command) command.run(client, interaction, interaction.locale);
         });
     }
 });
